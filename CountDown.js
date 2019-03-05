@@ -13,16 +13,12 @@ window.onload = function() {
 
 function countDownFromTime(countDown, id) {
 
-	// Testing time zone logic
-	//var offset = new Date().getTimezoneOffset();
-	//console.log(offset);
-
 	var timeTo = countDown - new Date();	// Time to countDown date in milliseconds
 	
 	var seconds = Math.floor( (timeTo/1000) % 60 ); 		// Convert ms to seconds and round down
 	var minutes = Math.floor( (timeTo/1000/60) % 60);		// ms to seconds to minutes & round down
 	var hours = Math.floor ( (timeTo/(1000*60*60)) % 24);	// ms to seconds to mins to hrs
-	var days = Math.floor ( timeTo/(1000*60*60*24));
+	var days = Math.floor ( timeTo/(1000*60*60*24));		// ms to days
 	
 	// seems like 365.2422 is close enough according to Washington Post ¯\_(?)_/¯
 	var years = Math.floor ( timeTo/(1000*60*60*24*365.2422));
@@ -31,6 +27,15 @@ function countDownFromTime(countDown, id) {
 	if (years > 0) {
 		days = Math.floor( days - (365.2422 * years) )
 	}
+
+	// let's display total weeks & hours too while we're at it
+	var floatWeeks = Number( (timeTo/(1000*60*60*24)) / 7).toFixed(2);
+	var floatHours = Number(timeTo/(1000*60*60)).toFixed(2);
+
+	// Floating point weeks below the full X years Y days etc line. 
+	// This would be something like "10.54 weeks"
+	$("#floatWeeks").text(floatWeeks);
+	$("#floatHours").text(floatHours);
 
 	// Disable years/days/hours/etc as they hit 0.
 	if (years != 0) {
