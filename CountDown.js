@@ -28,14 +28,22 @@ function countDownFromTime(countDown, id) {
 		days = Math.floor( days - (365.2422 * years) )
 	}
 
-	// let's display total weeks & hours too while we're at it
-	var floatWeeks = Number( (timeTo/(1000*60*60*24)) / 7).toFixed(2);
-	var floatHours = Number(timeTo/(1000*60*60)).toFixed(2);
+	// Let's also display total years, months, weeks, days & hours too while we're at it
+	var floatYears  = Number( timeTo / (1000*60*60*24*365.2422) ).toFixed(2);
+	var floatMonths = Number( timeTo / (1000*60*60*24) / (365/12) ).toFixed(2);
+	var floatWeeks  = Number( (timeTo / (1000*60*60*24) ) / 7).toFixed(2);
+	var floatDays   = Number( timeTo / (1000*60*60*24) ).toFixed(2);
+	var floatHours  = Number( timeTo / (1000*60*60) ).toFixed(2);
+	var floatMins   = Number( timeTo / (1000*60) ).toFixed(2);
 
 	// Floating point weeks below the full X years Y days etc line. 
 	// This would be something like "10.54 weeks"
+	$("#floatYears").text(floatYears);
+	$("#floatMonths").text(floatMonths);
 	$("#floatWeeks").text(floatWeeks);
+	$("#floatDays").text(floatDays);
 	$("#floatHours").text(floatHours);
+	$("#floatMins").text(floatMins);
 
 	// Disable years/days/hours/etc as they hit 0.
 	if (years != 0) {
