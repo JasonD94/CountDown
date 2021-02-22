@@ -8,7 +8,7 @@ window.onload = function() {
 	// or (year, monthIndex, day, hours, minutes, seconds). Reference:
 	// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date
 	// https://www.epochconverter.com/
-	countDownFromTime(new Date(1597838400000), 'countDownDiv');
+	countDownFromTime(new Date(1629349200000), 'countDownDiv');
 };
 
 function countDownFromTime(countDown, id) {
