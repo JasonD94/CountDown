@@ -8,7 +8,9 @@ window.onload = function() {
 	// or (year, monthIndex, day, hours, minutes, seconds). Reference:
 	// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date
 	// https://www.epochconverter.com/
-	countDownFromTime(new Date(1629349200000), 'countDownDiv');
+  // Example:   Friday, October 13, 2023 5:00:00 PM == 1697230800000
+  //          Thursday,  August 19, 2021 1:00:00 AM == 1629349200000
+	countDownFromTime(new Date(1697230800000), 'countDownDiv');
 };
 
 function countDownFromTime(countDown, id) {
